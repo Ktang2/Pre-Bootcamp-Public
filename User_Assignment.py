@@ -15,6 +15,7 @@ class User:
         print(f"Rewards member: {self.is_rewards_member}")
         print(f"Gold card points: {self.gold_card_points}")
         print("")
+        return self
 
     def enroll(self):
         if self.is_rewards_member == True:
@@ -23,6 +24,7 @@ class User:
         else:
             self.is_rewards_member = True
             self.gold_card_points = 200
+        return self
 
     def spend_points(self,amount):
         if amount < self.gold_card_points:
@@ -32,27 +34,15 @@ class User:
         else:
             print("Not enough points")
             print("")
+        return self
 
 user1 = User("Kalvin", "Tang", "kt@gmail.com", 29)
 user2 = User("Sheryl", "Crispo", "CrispySher@gmail.com", 26)
 user3 = User("Leeroy", "Jenkins", "WOW@blizzard.com", 55)
 
-user1.display_info()
+user1.display_info().enroll().display_info().enroll().spend_points(50).display_info()
 
-user1.enroll()
+user2.enroll().spend_points(80).display_info()
 
-user1.display_info()
+user3.spend_points(100).display_info()
 
-user1.enroll()
-
-user1.spend_points(50)
-
-user2.enroll()
-
-user2.spend_points(80)
-
-user3.spend_points(100)
-
-user1.display_info()
-user2.display_info()
-user3.display_info()
